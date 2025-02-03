@@ -1,0 +1,24 @@
+/* premiere-partie */
+
+.premiere-partie {
+    display: grid;
+    grid-template-columns: auto 450px;
+    grid-template-rows: auto;
+    justify-content: center;
+    margin-top: 150px;
+}
+
+.titre {
+    font-family: "8bitOperatorPlus8-Regular";
+    color: #05F7F7;
+    margin-bottom: 60px;
+}
+
+.manette {
+    margin-right: 150px;
+}
+
+.texte-présentation {
+    color: azure;
+}
+
