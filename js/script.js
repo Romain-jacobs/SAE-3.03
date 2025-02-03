@@ -50,39 +50,37 @@ function lancerAnimationKarts(annee, ordre) {
     const maxVentes = Math.max(...ventes);
 
     // Trier les karts par ventes croissantes
-    const kartsArray = Array.from(karts);
-    kartsArray.sort((a, b) => {
-        const ventesA = ventesFlotantes(jeux[kartsArray.indexOf(a) % jeux.length].ventes);
-        const ventesB = ventesFlotantes(jeux[kartsArray.indexOf(b) % jeux.length].ventes);
+    const triKart = Array.from(karts);
+    triKart.sort((a, b) => {
+        const ventesA = ventesFlotantes(jeux[triKart.indexOf(a) % jeux.length].ventes);
+        const ventesB = ventesFlotantes(jeux[triKart.indexOf(b) % jeux.length].ventes);
         return ordre === 'asc' ? ventesA - ventesB : ventesB - ventesA;
     });
 
-    kartsArray.forEach((kart, index) => {
-        const ventesActuelles = ventesFlotantes(jeux[kartsArray.indexOf(kart) % jeux.length].ventes);
-        const pourcentage = ((ventesActuelles - minVentes) / (maxVentes - minVentes)) * 100;
+    triKart.forEach((kart, index) => {
+        const ventesActuelles = ventesFlotantes(jeux[triKart.indexOf(kart) % jeux.length].ventes);
+        const pourcentage = ((ventesActuelles - minVentes) / (maxVentes - minVentes)) * 150;
 
         if (ventesActuelles === minVentes) {
             kart.style.animation = 'none';
         } else {
             kart.style.offsetDistance = pourcentage + '%';
-            kart.style.animation = 'move' + pourcentage / 10 + 's linear';
-            kart.style.animationDelay = index * 0.6 + 's'; // Décalage entre chaque kart
+            kart.style.animation = 'move '+pourcentage +'s linear';
+            kart.style.animationDelay = index * 0.6 + 's'; 
         }
     });
 }
 
 // Script pour récuperer les données des jeux et les liés aux karts pour pouvoir afficher les détails
-document.addEventListener("DOMContentLoaded", () => {
-    const karts = document.querySelectorAll(".kart");
-    karts.forEach((kart, index) => {
-        kart.addEventListener("click", () => {
-            if (anneeSelectionnee) {
-                const jeuAnnee = Object.values(jeu[anneeSelectionnee]);
-                if (jeuAnnee[index]) {
-                    afficherDetailsJeu(jeuAnnee[index]);
-                }
+const karts = document.querySelectorAll(".kart");
+karts.forEach((kart, index) => {
+    kart.addEventListener("click", () => {
+        if (anneeSelectionnee) {
+            const jeuAnnee = Object.values(jeu[anneeSelectionnee]);
+            if (jeuAnnee[index]) {
+                afficherDetailsJeu(jeuAnnee[index]);
             }
-        });
+        }
     });
 });
 
