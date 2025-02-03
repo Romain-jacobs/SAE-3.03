@@ -87,7 +87,7 @@ karts.forEach((kart, index) => {
 // Script pour afficher les détails d'un jeu
 function afficherDetailsJeu(jeu) {
     const details = `
-        <h2>${jeu.nom || 'Titre non disponible'}</h2>
+        <h2>${jeu.nom}</h2>
         <p>Ventes: ${jeu.ventes || 'Non disponible'}</p>
         <p>Date de sortie: ${jeu["date de sortie"] || 'Non disponible'}</p>
         <p>Type de jeu: ${jeu["type de jeu"] || 'Non disponible'}</p>
