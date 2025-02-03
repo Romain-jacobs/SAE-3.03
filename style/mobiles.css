@@ -23,12 +23,12 @@ h4 {
 
 @font-face {
     font-family: '8bitOperatorPlus8-Regular';
-    src: url('../font/8-bit-operator/8bitOperatorPlus-Regular.ttf');
+    src: url('../font/8-bit-operator/8bitOperatorPlus-Regular.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'roboto';
-    src: url('../font/Roboto/Roboto-VariableFont_wdth\,wght.ttf');
+    src: url('../font/Roboto/Roboto-VariableFont_wdth\,wght.ttf') format('truetype');
 }
 
 /* header */
